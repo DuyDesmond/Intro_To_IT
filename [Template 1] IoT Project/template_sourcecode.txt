@@ -1,0 +1,18 @@
+import sys
+from Adafruit_IO import MQTTClient
+import random
+
+AIO_USERNAME = ""
+AIO_KEY = ""
+
+client = MQTTClient(AIO_USERNAME , AIO_KEY)
+
+client.connect()
+client.loop_background()
+
+while True:
+	time.sleep(10)
+	print("Your Code Here")
+	value1 = random.randint(20, 80)
+	client.publish("sensor1", value1)
+	#TODO
